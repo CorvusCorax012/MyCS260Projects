@@ -1,0 +1,37 @@
+*{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.content-body {
+  margin-top: 25px;
+  margin-bottom: 75px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*ul {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}*/
+
+.intro {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+.portfolioPage {
+  display: grid;
+  grid-template: auto auto auto auto auto / 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.image img {
+  width: 100%;
+}
+
