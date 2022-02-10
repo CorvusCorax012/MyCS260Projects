@@ -1,7 +1,7 @@
 body {
   position: relative;
   overflow-x: hidden;
-  background-color: #0072b4;
+  background-color: #2356fd;
 }
 body,
 html { height: 100%;}
@@ -51,7 +51,9 @@ display: none;
 #page-content-wrapper {
   width: 100%;
   padding-top: 70px;
-  
+  display: flex;
+  flex-wrap: wrap;
+  /*height: 100%;*/
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -98,7 +100,7 @@ display: none;
 
 }
 .sidebar-nav li:hover{
-  background: rgb(30, 180, 240) !important;
+  background: #2356fd !important;
   border-radius: 10px;
   margin-left: 10px;
   margin-right: 10px;
@@ -277,7 +279,7 @@ outline: none;
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
 .hamburger.is-closed .hamb-bottom {
-  background-color: #1a1a1a;
+  background-color: #fafafa;
 }
 .hamburger.is-closed .hamb-top { 
   top: 5px; 
@@ -307,7 +309,7 @@ margin-top: -2px;
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-middle,
 .hamburger.is-open .hamb-bottom {
-  background-color: #1a1a1a;
+  background-color: #fafafa;
 }
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {
@@ -348,4 +350,28 @@ margin-top: -2px;
   transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
   transition: all .35s ease-in-out;
+}
+
+/*-------------------------------*/
+/*            Grid               */
+/*-------------------------------*/
+
+
+.grid_item {
+  height: 10vw;
+  width: 10vw;
+  background: #fff;
+  opacity: 0;
+  -webkit-transition: opacity 2s ease 0.4s, transform 0.8s ease;
+  transition: opacity 2s ease 0.4s, transform 0.8s ease;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.grid_item:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  -webkit-transform: scale(1.04);
+  transform: scale(1.04);
 }
