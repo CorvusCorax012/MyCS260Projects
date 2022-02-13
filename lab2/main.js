@@ -36,13 +36,16 @@ function displayWeather(json) {
   let results = "";
   results += `<h1>${json.name}</h1>`;
   results += `<h2>${json.main.temp} &deg;F</h2>`;
-
-  const description = json.weather.map((e) => e.description).join(", ");
-  results += `<p>${description}</p>`;
+  results += `<p3>min/max: (${json.main.temp_min}/${json.main.temp_max})&deg;F</p3><br>`;
+  
   for (let i = 0; i < json.weather.length; i++) {
     results += `<img src="http://openweathermap.org/img/w/${json.weather[i].icon}.png"/>`;
   }
-
+  const description = json.weather.map((e) => e.description).join(", ");
+  results += `<h4>${description}</h4>`;
+  let dir = calcWind(json);
+  results += `<br><p2><strong>Wind Speed:</strong> ${json.wind.speed}mph <strong>Wind Direction:</strong> ${dir}(${json.wind.deg}&deg)</p2>`;
+  results += `<br><p2><strong>Coordinates(Lat,Long)&deg:</strong> ${json.coord.lat}, ${json.coord.lon}</p2>`;
 
   document.getElementById("weatherResults").innerHTML = results;
 }
@@ -103,4 +106,13 @@ function convertForecast(json, timezone) {
     });
   });
   return dailyForecastMap;
+}
+
+function calcWind(json){
+  let currDegrees = json.wind.deg;
+  let val=Math.floor((currDegrees/22.5)+.5)
+    arr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+    console.log(val);
+    console.log(val%16);
+    return arr[(val % 16)];
 }
