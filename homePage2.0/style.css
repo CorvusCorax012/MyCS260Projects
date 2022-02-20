@@ -60,6 +60,7 @@ display: none;
 
 #wrapper.toggled #sidebar-wrapper {
   width: 220px;
+  
 }
 
 .page-content-wrapper {
@@ -83,7 +84,7 @@ display: none;
 }
 .row {
   padding-left: 10vh;
-  
+
 }
 .sidebar-nav {
   position: absolute;
