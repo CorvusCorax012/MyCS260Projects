@@ -24,11 +24,6 @@ $(document).ready(function () {
       }
   }
 
-  $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
-  });  
-
-  
   fetch("https://type.fit/api/quotes")
   .then(function(response) {
     return response.json();
@@ -54,5 +49,12 @@ $(document).ready(function () {
     document.getElementById("quote").innerHTML = "\"" + quote + "\"";
     document.getElementById("author").innerHTML = "-" + author;
   }
+
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
+
+  
+  
 
 });
