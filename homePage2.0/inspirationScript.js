@@ -12,16 +12,13 @@
     getQuote(data);
   });
 
-  
+
   function getQuote(data) {
     let quoteArray = data.map((n) => n.text);
     let authorArray = data.map((n) => n.author);
     let randNum = Math.floor(Math.random() * quoteArray.length)
     const quote = quoteArray[randNum];
     const author = authorArray[randNum];
-    if(author === null) {
-      author = "Unknown";
-    }
     document.getElementById("quote").innerHTML = "\"" + quote + "\"";
     document.getElementById("author").innerHTML = "-" + author;
   }
