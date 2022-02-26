@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style3.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XKCD Comics Browser</title> 
+  </head>
+
+  <body>
+    <h1>XKCD Comics</h1>
+    <div id="app">
+      <div v-if="loading">
+        <p>Loading...</p>
+      </div>
+      <div v-else>
+        <p>
+          <!--<button @click="firstComic">First</button>
+          <button v-on:click="previousComic">Previous</button>
+          <button v-on:click="nextComic">Next</button>
+          <button @click="lastComic">Last</button>
+          <button v-on:click="randomComic">Random</button>-->
+          <ul class="button-group">
+            <li><button class="small button"@click="firstComic">First</button></li>
+            <li><button class="small button" v-on:click="previousComic">Previous</button></li>
+            <li><button class="small button"v-on:click="nextComic">Next</button></li>
+            <li><button class="small button"@click="lastComic">Last</button></li>
+            <li><button class="small button"v-on:click="randomComic">Random</button></li>
+          </ul>
+        </p>
+        <h2>{{current.safe_title}}</h2>
+        <img :src="current.img" :alt="current.alt" />
+        <p>{{current.alt}}</p>
+        <p>
+          <i>#{{current.num}}, drawn on {{current.day}} {{month}} {{current.year}}</i>
+        </p> 
+        <star-rating @rating-selected="setRating" :rating="starRating" :show-rating=false :active-color="['#a74444']" :increment=0.5></star-rating>
+        <p>Average Rating: {{starRating}}</p> 
+        <h3>Add a Comment</h3>
+        <form v-on:submit.prevent="addComment">
+          <input v-model="addedName" placeholder="Name"></p>
+          <textarea v-model="addedComment"></textarea>
+          <br />
+          <button type="submit">Comment</button>
+        </form>
+        <h3>Comments</h3>
+        <div v-for="comment in comments[number]">
+          <hr>
+          <p>{{comment.text}}</p>
+          <p>{{comment.date}}</p>
+          <p><i>-- {{comment.author}}</i></p>
+        </div>
+      </div>
+      <footer>
+        <div class="container-fluid">
+          <a
+            href="https://github.com/BYUCS260/xkcd-browser-CorvusCorax012"
+            >GitHub Repo</a>
+        </div>
+      </footer>
+    </div>
+   
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+   
+    <script src="https://unpkg.com/vue-star-rating/dist/VueStarRating.umd.min.js"></script>
+    <script src="script3.js"></script>
+  </body>
+</html>
