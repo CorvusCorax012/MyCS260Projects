@@ -1,0 +1,130 @@
+<template>
+  <div>
+    <div class="wrapper">
+      <div class="search">
+        <form class="pure-form">
+        <input v-model="searchText" placeholder=" search for a word"/>
+        </form>
+      </div>
+      <button v-on:click="getWord"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class = "vocabCard">
+      <h1>{{this.word}}</h1><br>
+      <h2>Definition: {{this.definition}}</h2><br>
+      <h3>Phonetics: {{this.phonetic}}</h3>
+      
+      <button v-on:click="add">Learn Word</button>
+    </div>
+
+  </div>
+
+</template>
+
+<script>
+import axios from 'axios';
+export default {
+  data () {
+    return {
+      searchText: '',
+      word: '',
+      definition: '',
+      phonetic: '',
+      //audioURL: '',
+      words: [],
+    }
+  },
+
+  methods: {
+    add: function(event) {
+      alert(event);
+    },
+    displayWord: function(json){
+      console.log("display function");
+        for (let i = 0; i < json.data.length; i++) {
+          console.log(json.data[i].word);
+          this.word = this.capitalizeFirstLetter(json.data[i].word);
+          for (let j = 0; j < json.data[i].meanings.length; j++) {
+            console.log(json.data[i].meanings[j].definitions[0]);
+            this.definition = json.data[0].meanings[0].definitions[0].definition;
+            this.phonetic = json.data[0].phonetic;
+            this.audioURL = json.data[0].phonetics[1].audio;
+          }
+          
+        }
+    },
+    getWord() {
+        try {
+
+        const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+ this.searchText;
+        
+        axios
+          .get(url)
+          .then ((response) => {
+            console.log(response);
+            this.displayWord(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      } catch (error) {
+        console.log(error);
+        
+      }
+    },
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    },
+
+    
+  }
+}
+
+</script>
+
+<style scoped>
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 50%;
+}
+form {
+  display: table;
+  width: 100%;
+  
+}
+i {
+  display: table-cell;
+  padding: 10px;
+  width: 1px;
+}
+input {
+  display: table-cell;
+  font-size: 20px;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  height: 40px;
+}
+.vocabCard {
+ 
+  display: block;
+  margin: 3rem;
+  border: 1px solid;
+  padding: 3rem;
+  box-shadow: 5px 10px 18px #888888;
+  border-radius: 25px;
+  justify-content: center;
+  font-display: bold;
+  background-color: #e0e0e0;
+}
+
+
+
+</style>
