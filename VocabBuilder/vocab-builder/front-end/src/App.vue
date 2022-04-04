@@ -15,7 +15,7 @@
       </div>
     </nav>
     <router-view/>
-     <footer class="fixed-bottom navbar-light bg-primary shadow-lg mt-1 p-3 rounded">
+     <footer class="fixed-bottom navbar-light bg-primary shadow-lg mt-3 p-3 rounded">
       <div class="container-fluid">
         <a
           class="navbar-brand"

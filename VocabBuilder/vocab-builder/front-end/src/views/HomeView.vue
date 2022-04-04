@@ -5,7 +5,7 @@
       <div class = "content">
         <div id="intro">
           <h2>Build Your Vocabulary</h2>
-          <p><strong>This site was made so that you can keep track of new words that you encounter. You can search for a new word <a href="../NewWords">here</a> to get info regarding that word and then you can decide if you would like to add it to your vocabulary cards to <a href="../Vocab">learn them</a> and start using in your day-to-day life or writing.<br>
+          <p><strong>This site's purpose is to help you keep track of new words that you encounter. You can search for a new word <a href="../NewWords">here</a> to get info regarding that word and then you can decide if you would like to add it to your vocabulary cards to <a href="../Vocab">learn them</a> and start using in your day-to-day life or writing.<br>
           If you need inspiration for words to start out with check out the lists <a href="../Lists">here</a>
           </strong></p>
         </div>
